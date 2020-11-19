@@ -1,0 +1,10 @@
+As aliases are not supported in Windows Command Prompt the way it is in Bash,
+
+I've had to create my own small batch files triggering the apps I want.
+
+To enable the recognition of my batch files anywhere in the terminal, I added
+"c:\aliases" to the system environment path in Windows.
+
+As some files required administrative rights, I changed the 'PowerShell Properties'
+to always 'run as administrator'. As the annoying pop-up alert always is triggered,
+I disabled this in the 'User Account Control Settings'
