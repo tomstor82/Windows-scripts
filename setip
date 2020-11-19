@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Variables
+ethAdapter='"USB Ethernet"';
+wifiAdapter='"Wireless Network Connection"';
+mask=255.255.255.0;
+# User Input 1
+read -p 'Press 1 for USB Ethernet or 2 for WiFi Ethernet (Blank defaults 1): ' adapter;
+
+# Check adapter input
+if [ -z $adapter ] || [ $adapter -eq 1 ]; then
+	adapter=$ethAdapter;
+else adapter=$wifiAdapter;
+fi
+
+# User Input 2
+read -p "Set ${adapter} IP address. Leave blank for DHCP: " ip;
+
+# Check IP input
+if [ -z $ip ]; then
+	/mnt/c/windows/system32/netsh.exe interface ip set address $adapter dhcp;
+	sleep 1;
+	ping 8.8.8.8 -c7;
+else
+	/mnt/c/windows/system32/netsh.exe interface ip set address $adapter static $ip $mask;
+fi;
