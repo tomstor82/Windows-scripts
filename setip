@@ -50,6 +50,12 @@ fi;
 maskFilter=$(grep -Po '\/\d+$' <<< $ipmask);
 mask=$(grep -Po '\d+' <<< $maskFilter);
 
+# I reckon I can make a loop which subtracts 8 bits from the mask bits, while the mask bits are greater than 8.
+# Counting the number of subtractions we convert each into representing a full byte in decimals (255)
+# The remaining we convert to decimal.
+# bit mask 23: Remaining is 7. 8 - 7 or 1111 1111 - 0000 0001 = 254
+# bit mask 21: Remaining is 5. 8 - 5 or 1111 1111 - 0000 0011 = 252 should be 248
+
 # Net bit to address matcher
 if [ $mask ]; then
 	case $mask in
@@ -70,29 +76,6 @@ if [ $mask ]; then
 else
 	read -p 'Type full mask address, alternatively leave blank for default 255.255.255.0: ' maskAddressInput;
 fi;
-
-
-
-# Net Mask Converter
-#if [ $mask ]; then
-#	if [ $mask -eq 32 ]; then
-#		maskAddress=255.255.255.255;
-#	elif [ $mask -eq 24 ]; then
-#		maskAddress=255.255.255.0;
-#	elif [ $mask -eq 16 ]; then
-#		maskAddress=255.255.0.0;
-#	elif [ $mask -eq 8 ]; then
-#               maskAddress=255.0.0.0;
-#        elif [ $mask -eq 0 ]; then
-#		maskAddress=0.0.0.0;
-#	else
-#		#maskAddress=255.255.255.0;
-#		echo 'Mask range either 0/8/16/24/32 bits, alternatively full net mask address 255.255.255.0 formats accepted (Default 24bit set)'
-#	fi;
-# If no mask details given set default
-#else
-#	read -p "Type full subnet mask address, alternatively leave blank for default 255.255.255.0: " maskAddressInput;
-#fi;
 
 # Check maskAddressInput received
 if [ $maskAddressInput ]; then
