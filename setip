@@ -37,7 +37,7 @@ if [ $ipmask ]; then
 else
 	$sys32/netsh.exe interface ip set address $adapter dhcp;
 	sleep 3; #add delay before ping
-	ping -O 8.8.8.8 -c7 2> ~/.error;
+	ping -O -s24 -c7 8.8.8.8 2> ~/.error;
 	error=$(wc -l ~/.error | grep -Po '\d');
 	rm ~/.error
 	# Ping error out suspect connectivity issue
