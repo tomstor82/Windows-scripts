@@ -13,7 +13,7 @@ alias l='ls -1aF --color';
 # Set IP
 alias setip='/mnt/c/aliases/setIp';
 # Display Local and Public IP
-alias ip='echo "Local IP address: " && ifconfig | grep -Po "inet\s((\d){1,3}\.){3}(\d){1,3}" | grep -Po "\d+.+" | grep -Pv "(127.0.0.1)" && echo "" && echo "Public IP address: " && dig +short myip.opendns.com @resolver1.opendns.com';
+alias ip='echo "Local IP address: " && ifconfig | grep -Po "inet\s((\d){1,3}\.){3}(\d){1,3}" | grep -Po "\d+.+" | grep -v "127.0.0.1" && echo "" && echo "Public IP address: " && dig +short myip.opendns.com @resolver1.opendns.com';
 # Variables
 moz='/mnt/c/Progra~1/Mozill~1/firefox.exe';
 netsh='/mnt/c/Windows/System32/netsh.exe';
