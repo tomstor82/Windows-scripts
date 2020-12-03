@@ -6,16 +6,16 @@ wifiAdapter='"Wireless Network Connection"';
 maskAddress=255.255.255.0;
 sys32=/mnt/c/windows/system32;
 # User Input 1
-read -p 'Press 1 for USB Ethernet or 2 for WiFi Ethernet (Blank defaults 1): ' adapter;
+read -p 'Press 1 for WiFi Ethernet or 2 for USB Ethernet (Blank defaults 1): ' adapter;
 
 # Check adapter input
 if [ -z $adapter ] || [ $adapter -eq 1 ]; then
-	adapter=$ethAdapter;
-else adapter=$wifiAdapter;
+	adapter=$wifiAdapter;
+else adapter=$ethAdapter;
 fi
 
 # User Input 2
-read -p "Enter ${adapter} IP address e.g. 88.3/16. Blank for DHCP: " ipmask;
+read -p 'Enter ${adapter} IP address e.g. 88.3/16. Blank for DHCP: ' ipmask;
 
 # Was ipmask input?
 if [ $ipmask ]; then
