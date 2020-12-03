@@ -15,7 +15,7 @@ else adapter=$ethAdapter;
 fi
 
 # User Input 2
-read -p 'Enter ${adapter} IP address e.g. 88.3/16. Blank for DHCP: ' ipmask;
+read -p "Enter ${adapter} IP address e.g. 88.3/16. Blank for DHCP: " ipmask; #double quotation marks allows for the display of variable
 
 # Was ipmask input?
 if [ $ipmask ]; then
