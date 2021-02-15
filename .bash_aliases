@@ -35,4 +35,4 @@ alias ubnt='${netsh} interface ip set address "USB Ethernet" static 192.168.1.19
 # show saved wifi networks
 alias show='/mnt/c/Windows/system32/cmd.exe /mnt/c/aliases/show.bat'
 # show stored wifi password
-alias ssid='${netsh} wlan show profile | more && read -p "Type Wireless Profile Name: " ssid && ${netsh} wlan show profile "${ssid}" key=clear';
+alias ssid='${netsh} wlan show profile | more && read -p "Type Wireless Profile Name: " ssid && ${netsh} wlan show profile "${ssid}" key=clear | more';
