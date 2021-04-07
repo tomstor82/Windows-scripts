@@ -26,8 +26,8 @@ alias spd='${moz} https://www.speedtest.net/#';
 alias hotspot='/mnt/c/Windows/System32/cmd.exe /mnt/c/aliases/hotspot.bat';
 # Skype
 alias skype='/mnt/c/Progra~2/Microsoft/Edge/Application/msedge.exe https://web.skype.com &';
-# Ubiquiti Discovery Tool
-alias disc='/mnt/c/Users/FasttrackBB/Desktop/start ubnt-discovery-v2.5.1.jar &';
+# Traceroute
+alias tracert='/mnt/c/Windows/System32/TRACERT.exe';
 # set IP shortcuts
 alias dhcp='${netsh} interface ip set address "USB Ethernet" dhcp && ${netsh} interface ip set address "Wireless Network Connection" dhcp && echo Dynamic IP set && sleep 2 && pgo';
 alias mtek='${netsh} interface ip set address "USB Ethernet" static 192.168.88.2 255.255.255.0 && echo IP set to 192.168.88.2 && sleep 2 && p88';
